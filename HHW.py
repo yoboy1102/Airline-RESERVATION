@@ -1,18 +1,56 @@
-print()
-print("-------------------------------------------------------------------------------------------------------------------------------------------")
-print(" \t \t \t \t \t \t \tWELCOME TO ABC")
-print("-------------------------------------------------------------------------------------------------------------------------------------------")
-print()
-dept=["ABC",'EFG','HIJ','LMN','OPQ']
-nm=1
-indept=0
-for i in range(len(dept)):
-    print(nm,'-' , dept[indept])
-    indept+=1
-    nm+=1
-print()
+print(""" 
+      WELCOME TO EMIRATES
+                        fly better.....
+             """)
+airports = ['DCA', 'DEL', 'BSB', 'BER', 'DXB']
+print(""" Airports available:
+                 USA: Ronald Reagan Washington National Airport (DCA)
+                 IND: Indira Gandhi International Airport (DEL)
+                 BRA: Brasília International Airport (BSB)
+                 GER: Berlin Brandenburg Airport (BER)
+                 UAE: Dubai International Airport(DXB)
+                 """)
 
-e=int(input("ENTER YOU DEPARTURE POINT (BY THE NUMBER ASSIGNED TO IT):-- "))
-if type(e)== int:
-    if e<=len(dept):
-        print("Your Departure point is;", dept[(e-1)],'\n Enter ee')
+
+
+while True:
+    dept = input("ENTER YOUR DEPARTURE POINT (BY THE AIRPORT CODE ASSIGNED TO IT):-- ").upper()
+    arv = input("ENTER YOUR ARRIVAL POINT (BY THE AIRPORT CODE ASSIGNED TO IT):-- ").upper()
+    if dept and arv in airports:
+        cond = True
+    else:
+        print ("invalid input")
+        cond = False
+    if cond== True:
+        conf_1 = int(input(f"your  departure point is {dept} and arrival point is {arv} enter 1 to confirm or 0 to not confirm"))
+        if conf_1 == 1:
+            print("done")
+
+
+
+
+
+        elif conf_1 == 0:
+            n_dept = input("ENTER YOUR DEPARTURE POINT (BY THE AIRPORT CODE ASSIGNED TO IT):-- ").upper()
+            n_arv = input("ENTER YOUR ARRIVAL POINT (BY THE AIRPORT CODE ASSIGNED TO IT):-- ").upper()
+            if n_dept and n_arv in airports:
+                cond = True
+            else:
+                print("invalid input")
+                cond = False
+            if cond:
+                print("done")
+            else:
+                print("airport code invalid....server timed out")
+
+
+
+
+
+    elif cond == False:
+        dept = input("ENTER YOUR DEPARTURE POINT (BY THE AIRPORT CODE ASSIGNED TO IT):-- ").upper()
+        arv = input("ENTER YOUR ARRIVAL POINT (BY THE AIRPORT CODE ASSIGNED TO IT):-- ").upper()
+        print(f"departure: {dept}  arrival: {arv}")
+        print("done")
+
+
