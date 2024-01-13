@@ -174,21 +174,40 @@ while True:
         print("FLIGHTS AVAILIBILITY")
         print("Currencies accepted ==>")
         L_cur = ['AED','USD','INR','GPB','EUR']
+        L_ncur = ['Dirhams','American Dollars','Rupees','British Pounds','Euros']
+        pr1,pr2,pr3,pr4,pr5 = 1500,1680,1748,2400,3000
+        hr1,hr2,hr3,hr4,hr5 = 8,7,6,3,3
 
         for i in range(len(L_cur)):
-            print(L_cur[i])
+            print(f"{L_ncur} ({L_cur[i]})")
 
-        cur = input("First, Please enter your preffered currency(by the ISO code):- ").upper
+        cur = input("First, Please enter your preffered currency(by the ISO code):- ").upper()
         if cur in L_cur:
-            print('H')
-            break
-
+            if cur == 'GPB':
+                pr1,pr2,pr3,pr4,pr5 = pr1,pr2,pr3,pr4,pr5
+                break
+            elif cur == 'AED':    
+                pr1,pr2,pr3,pr4,pr5 = 3.6*pr1,3.6*pr2,3.6*pr3,3.6*pr4,3.6*pr5
+                break
+            elif cur == 'INR':
+                pr1,pr2,pr3,pr4,pr5 = 82.8*pr1,82.8*pr2,82.8*pr3,82.8*pr4,82.8*pr5
+                break
+            elif cur == 'USD':
+                pr1,pr2,pr3,pr4,pr5 = 1.27*pr1,1.27*pr2,1.27*pr3,1.27*pr4,1.27*pr5
+                break 
+            elif cur == 'EUR':
+                pr1,pr2,pr3,pr4,pr5 = 1.16*pr1,1.16*pr2,1.16*pr3,1.16*pr4,1.16*pr5
+                break
+        else:
+            print('ERROR, Invalid input')
+            print("Press 'ENTER' to try again")
+            input()
+            continue        
         
 
-        pr1,pr2,pr3,pr4,pr5=1500,1680,1748,2400,3000
         
-        
-
+                
+    while True:        
         from asciiSS import ALL, PLA
         al=ALL
         pl=PLA
@@ -196,18 +215,84 @@ while True:
         
         ind_d = air.index(dept)
         ind_a = air.index(arv)
+        f='A'
 
-        print(f'\t\t','12 hour',f"\t\t",'Over-lay')
+        print(f)
         print('--------------------------------------------------------------------------')
+        print(f'|\t\t',hr1,f'hour',f"\t\t",f'Over-lay \t|')
         for i in range(4):
         
             print('|','\t',ALL[ind_d],'\t',pl[i],'\t',ALL[ind_a],'\t','|')
             ind_d+=1
             ind_a+=1 
-
+        print(f'|\t\t{pr1}',cur,f"\t\t",f'ECONOMY \t|')
         print('--------------------------------------------------------------------------')
 
-        print(f'\t\t{pr1}','INR',f"\t\t",'ECONOMY')
+        ind_d = air.index(dept)
+        ind_a = air.index(arv)
+        f='B'
+
+        print(f)
+        print('--------------------------------------------------------------------------')
+        print(f'|\t\t',hr2,f'hour',f"\t\t",f'Over-lay \t|')
+        for i in range(4):
+        
+            print('|','\t',ALL[ind_d],'\t',pl[i],'\t',ALL[ind_a],'\t','|')
+            ind_d+=1
+            ind_a+=1 
+        print(f'|\t\t{pr2}',cur,f"\t\t",f'ECONOMY \t|')
+        print('--------------------------------------------------------------------------')
+
+        ind_d = air.index(dept)
+        ind_a = air.index(arv)
+        f='C'
+
+        print(f)
+        print('--------------------------------------------------------------------------')
+        print(f'|\t\t',hr3,f'hour',f"\t\t",f'Over-lay \t|')
+        for i in range(4):
+        
+            print('|','\t',ALL[ind_d],'\t',pl[i],'\t',ALL[ind_a],'\t','|')
+            ind_d+=1
+            ind_a+=1 
+        print(f'|\t\t{pr3}',cur,f"\t\t",f'ECONOMY \t|')
+        print('--------------------------------------------------------------------------')
+
+        ind_d = air.index(dept)
+        ind_a = air.index(arv)
+        f='D'
+
+        print(f)
+        print('--------------------------------------------------------------------------')
+        print(f'|\t\t',hr4,f'hour',f"\t\t",f'Over-lay \t|')
+        for i in range(4):
+        
+            print('|','\t',ALL[ind_d],'\t',pl[i],'\t',ALL[ind_a],'\t','|')
+            ind_d+=1
+            ind_a+=1 
+        print(f'|\t\t{pr4}',cur,f"\t\t",f'ECONOMY \t|')
+        print('--------------------------------------------------------------------------')
+
+        ind_d = air.index(dept)
+        ind_a = air.index(arv)
+        f='E'
+
+        print(f)
+        print('--------------------------------------------------------------------------')
+        print(f'|\t\t',hr5,f'hour',f"\t\t",f'Over-lay \t|')
+
+        for i in range(4):
+        
+            print('|','\t',ALL[ind_d],'\t',pl[i],'\t',ALL[ind_a],'\t','|')
+            ind_d+=1
+            ind_a+=1 
+        print(f'|\t\t{pr5}',cur,f"\t\t",f'ECONOMY \t|')
+        print('--------------------------------------------------------------------------')
+
+        select=input('Select Flight(by the letter assigned to it):-- ').upper()
+        break
+
+        
 
 
         
