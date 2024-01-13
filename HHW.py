@@ -292,7 +292,43 @@ while True:
         select=input('Select Flight(by the letter assigned to it):-- ').upper()
         break
 
-        
+#seat reservation 
+import random
+t = [['A', 'B', 'C'],['D', 'E', 'F'],['A', 'B', 'C'],['D', 'E', 'F'],['A', 'B', 'C'],['D', 'E', 'F'],['A', 'B', 'C'],['D', 'E', 'F'],['A', 'B', 'C'],['D', 'E', 'F'],['A', 'B', 'C'],['D', 'E', 'F'],['A', 'B', 'C'],['D', 'E', 'F']]
+
+for i in range(0, 7):
+    g = random.randint(0, 7)
+    f = random.randint(0, 2)
+    t[g][f] = 'X'
+print(f''''
+  
+1.{t[0]}--b1       {t[1]}---b2
+2.{t[2]}--b3       {t[3]}---b4
+3.{t[4]}--b5       {t[5]}---b6
+4.{t[6]}--b8       {t[7]}---b9
+5.{t[8]}--b10      {t[9]}---b11
+6.{t[10]}--b13      {t[11]}---b14
+7.{t[12]}--b15      {t[13]}---b16
+*seats marked with X are already reserved
+*rows: 1,2,3,4,5,6,7
+*columns: A,B,C,D,E,F
+*blocks: 1 to 16
+''')
+
+num = 3
+for i in range(num):
+    row = int(input("please select row number: "))
+    column = input("please select column number(A,B,C,D,E,F): ").upper()
+    block = int(input("enter block number: "))
+
+    if column not in t[block-1]:
+        print("sorry seat is already reserved please select another seat press enter key to try again")
+        num+=1
+        input()
+    else:
+        ind = t[block - 1].index(column)
+        t[block-1][ind] = 'X'
+        print(f"seat number = {column}{row}")
 
 
         
